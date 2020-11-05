@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Student grade card calculator</title>
+
+  <style type="text/css">
+      
+      html {
+  font-family:arial;
+  font-size: 18px;
+}
+
+td {
+  border: 1px solid #726E6D;
+  padding: 15px;
+}
+
+thead{
+  font-weight:bold;
+  text-align:center;
+  background: #625D5D;
+  color:white;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+thead {
+ background-color: #ffd78c;
+ color: black;
+ 
+ }
+
+.footer {
+  text-align:right;
+  font-weight:bold;
+}
+
+.footer2 {
+  text-align:right;
+  font-weight:bold;
+}
+
+.button2 {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin-left: 400px;
+  margin-top: 10px;
+}
+
+.button2:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+tbody >tr:nth-child(odd) {
+  background: #D1D0CE;
+}
+
+  </style>
+
+</head>
+<body>
+    <u><h3><p style="">***Fill your marks, Click on calculate button and view your result</p></h3></u> 
+  <table>
+    <thead>
+      <tr>
+        <td colspan="3">Course </td>
+        <td rowspan="2"> Semester </td>
+        <td rowspan="2"> Credits </td>
+        <td colspan="2"> Achieved </td>
+      </tr>
+      <tr>
+        <td>Code </td>
+        <td colspan="2"> Name </td>
+        <td> Marks </td>
+        <td> Grade </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>CS 225 </td>
+        <td colspan="2">Data Structures </td>
+        <td> VI</td>
+        <td> 3.0 </td>
+        <td> <input id="ds1" type="text" placeholder=""> </td>
+        <td> <input id="ds2" type="text" placeholder=""> </td>
+      </tr>
+      <tr>
+        <td>PHIL 105 </td>
+        <td colspan="2">Ethics </td>
+        <td> VI</td>
+        <td> 3.0 </td>
+        <td> <input id="thics1" type="text" placeholder=""> </td>
+        <td> <input id="thics2"type="text" placeholder=""> </td>
+      </tr>
+      <tr>
+        <td>ECE 310 </td>
+        <td colspan="2">Digital Signal Processing </td>
+        <td> VI</td>
+        <td> 3.0 </td>
+        <td> <input id="dgi1" type="text" placeholder=""> </td>
+        <td> <input id="dgi2" type="text" placeholder=""> </td>
+      </tr>
+      <tr>
+        <td>CS 373 </td>
+        <td colspan="2">Combinatorial Algorithms </td>
+        <td> VI</td>
+        <td> 3.0 </td>
+        <td> <input id="algo1" type="text" placeholder=""> </td>
+        <td> <input id="algo2" type="text" placeholder=""></td>
+      </tr>
+      <tr>
+        <td>MATH 225 </td>
+        <td colspan="2">Multi-Variable Calculus </td>
+        <td> VI</td>
+        <td> 3.0 </td>
+        <td> <input id="multi1" type="text" placeholder=""> </td>
+        <td> <input id="multi2" type="text" placeholder=""> </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td style="background-color: #ffd78c" colspan="4" class="footer">Total</td>
+        <td style="background-color: #ffd78c" > 15 </td>
+        <td style="background-color: #ffd78c" ><input id="total1" type="text" placeholder=" MARKS OBTAINED"></td>
+        <td style="background-color: #ffd78c" ><input id="grad1" type="text" placeholder=" GRADE OBTAINED"></td>
+      </tr>
+      <tr>
+        <td style="background-color: #ffd78c" colspan="4" class="footer">PERCENTAGE</td>
+        <td style="background-color: #ffd78c" colspan="3"><input id="prc1" type="text" placeholder="">% </td>
+      </tr>
+
+      <tr>
+        <td style="background-color: #ffd78c" colspan="4" class="footer2">RESULT</td>
+        <td style="background-color: #ffd78c" colspan="3"><input id="pass1" type="text" placeholder="PASS OR FAIL"> </td>
+      </tr>
+  </table>
+  <button onclick="calcy()" id="calcu1" class="button2">CALCULATE</button>
+
+<script type="text/javascript">
+    const calcy=()=>{
+        let ds1=document.getElementById('ds1').value;
+        let thics1=document.getElementById('thics1').value;
+        let dgi1=document.getElementById('dgi1').value;
+        let algo1=document.getElementById('algo1').value;
+        let multi1=document.getElementById('multi1').value;
+        let grad="";
+
+///////////////////////////////////////////////////////////////
+
+        let totalo=parseFloat(ds1)+parseFloat(thics1)+parseFloat(dgi1)+parseFloat(algo1)+parseFloat(multi1);
+        let perag=(totalo/500)*100;
+        
+
+        if(perag<=100 && perag>=80){
+            grad='A';
+        }
+        else if(perag<=79 && perag>=60){
+            grad='B';
+        }
+        else if(perag<=59 && perag>=40){
+            grad='C';
+        }
+        else{
+            grad='F';
+        }
+
+//////////////////////////////////////////////////
+        let gradds1="";
+        if(ds1<=100 && ds1>=80){
+            gradds1='A';
+        }
+        else if(ds1<=79 && ds1>=60){
+            gradds1='B';
+        }
+        else if(ds1<=59 && ds1>=40){
+            gradds1='C';
+        }
+        else{
+            gradds1='F';
+        }
+        document.getElementById('ds2').value=gradds1;
+/////////////////////////////////////////////////////////
+        let gradds2="";
+        if(thics1<=100 && thics1>=80){
+            gradds2='A';
+        }
+        else if(thics1<=79 && thics1>=60){
+            gradds2='B';
+        }
+        else if(thics1<=59 && thics1>=40){
+            gradds2='C';
+        }
+        else{
+            gradds2='F';
+        }
+        document.getElementById('thics2').value=gradds2;
+////////////////////////////////////////////////////////
+        let gradds3="";
+        if(dgi1<=100 && dgi1>=80){
+            gradds3='A';
+        }
+        else if(dgi1<=79 && dgi1>=60){
+            gradds3='B';
+        }
+        else if(dgi1<=59 && dgi1>=40){
+            gradds3='C';
+        }
+        else{
+            gradds3='F';
+        }
+        document.getElementById('dgi2').value=gradds3;
+//////////////////////////////////////////////////////
+
+        let gradds4="";
+        if(algo1<=100 && algo1>=80){
+            gradds4='A';
+        }
+        else if(algo1<=79 && algo1>=60){
+            gradds4='B';
+        }
+        else if(algo1<=59 && algo1>=40){
+            gradds4='C';
+        }
+        else{
+            gradds4='F';
+        }
+        document.getElementById('algo2').value=gradds4;
+////////////////////////////////////////////////////////
+        let gradds5="";
+        if(multi1<=100 && multi1>=80){
+            gradds5='A';
+        }
+        else if(multi1<=79 && multi1>=60){
+            gradds5='B';
+        }
+        else if(multi1<=59 && multi1>=40){
+            gradds5='C';
+        }
+        else{
+            gradds5='F';
+        }
+        document.getElementById('multi2').value=gradds5;
+
+//////////////////////////////////////////////////////////
+
+        if(grad=='F'){
+            document.getElementById('pass1').value="FAIL";
+        }
+        else{
+            document.getElementById('pass1').value="PASS";
+        }
+
+        document.getElementById('total1').value=totalo;
+        document.getElementById('grad1').value=grad;
+        document.getElementById('prc1').value=perag;
+
+///////////////////////////////////////////////////////////
+        if(gradds1=='F' || gradds2=='F' || gradds3=='F' || gradds4=='F' || gradds5=='F' ){
+            document.getElementById('grad1').value="F";
+            document.getElementById('pass1').value="FAIL";
+        }
+
+
+
+    }
+
+
+</script>
+
+</body>
+</html>
